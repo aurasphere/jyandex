@@ -41,8 +41,7 @@ public class JandexTest {
 	 * If you need an API key, you can get it <a
 	 * href=https://tech.yandex.com/keys/get/?service=trnsl>here</a>.
 	 */
-	private static final String API_KEY = "trnsl.1.1.20160818T212242Z.ac542a8d13d69886.d854498fa0e07b92c95bc1cfc113f4a85f8fa1e1";
-			//"YOUR API KEY GOES HERE";
+	private static final String API_KEY = "YOUR API KEY GOES HERE";
 
 	@Before
 	public void setup() {
