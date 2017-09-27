@@ -34,7 +34,6 @@ import co.aurasphere.jandex.dto.DetectLanguageResponse;
 import co.aurasphere.jandex.dto.SupportedLanguageResponse;
 import co.aurasphere.jandex.dto.TranslateTextResponse;
 
-@SuppressWarnings("deprecation")
 public class Jandex {
 
 	public final static String BASE_ENDPOINT = "https://translate.yandex.net/api/v1.5/tr.json/";
