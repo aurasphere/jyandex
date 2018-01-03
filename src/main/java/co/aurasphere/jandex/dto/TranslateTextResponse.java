@@ -23,18 +23,85 @@
 */
 package co.aurasphere.jandex.dto;
 
-public class TranslateTextResponse extends DetectLanguageResponse{
+import java.util.Arrays;
 
+import co.aurasphere.jandex.Jandex;
+
+/**
+ * Response for {@link Jandex#translateText(String, String)}.
+ */
+public class TranslateTextResponse extends DetectLanguageResponse {
+
+	/**
+	 * The Constant serialVersionUID.
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The translated text.
+	 */
 	private String[] text;
 
+	/**
+	 * Gets the {@link #text}.
+	 *
+	 * @return the {@link #text}.
+	 */
 	public String[] getText() {
 		return text;
 	}
 
+	/**
+	 * Sets the {@link #text}.
+	 *
+	 * @param text
+	 *            the new {@link #text}.
+	 */
 	public void setText(String[] text) {
 		this.text = text;
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.jandex.dto.DetectLanguageResponse#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Arrays.hashCode(text);
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.jandex.dto.DetectLanguageResponse#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TranslateTextResponse other = (TranslateTextResponse) obj;
+		if (!Arrays.equals(text, other.text))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.jandex.dto.DetectLanguageResponse#toString()
+	 */
+	@Override
+	public String toString() {
+		return "TranslateTextResponse [text=" + Arrays.toString(text) + "]";
+	}
+
 }

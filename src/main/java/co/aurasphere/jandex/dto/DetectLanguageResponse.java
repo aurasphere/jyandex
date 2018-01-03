@@ -23,18 +23,87 @@
 */
 package co.aurasphere.jandex.dto;
 
+import co.aurasphere.jandex.Jandex;
+
+/**
+ * Response for {@link Jandex#detectLanguage(String)}.
+ * 
+ * @author Donato Rimenti
+ */
 public class DetectLanguageResponse extends BaseYandexResponse {
 
+	/**
+	 * The Constant serialVersionUID.
+	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	/**
+	 * The detected language.
+	 */
 	private String lang;
 
+	/**
+	 * Gets the {@link #lang}.
+	 *
+	 * @return the {@link #lang}.
+	 */
 	public String getLang() {
 		return lang;
 	}
 
+	/**
+	 * Sets the {@link #lang}.
+	 *
+	 * @param lang
+	 *            the new {@link #lang}.
+	 */
 	public void setLang(String lang) {
 		this.lang = lang;
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((lang == null) ? 0 : lang.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DetectLanguageResponse other = (DetectLanguageResponse) obj;
+		if (lang == null) {
+			if (other.lang != null)
+				return false;
+		} else if (!lang.equals(other.lang))
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#toString()
+	 */
+	@Override
+	public String toString() {
+		return "DetectLanguageResponse [lang=" + lang + "]";
+	}
+
 }

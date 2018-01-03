@@ -34,21 +34,53 @@ import co.aurasphere.jandex.dto.DetectLanguageResponse;
 import co.aurasphere.jandex.dto.SupportedLanguageResponse;
 import co.aurasphere.jandex.dto.TranslateTextResponse;
 
+/**
+ * Main class of the Jandex library. It offers access to the Yandex translate
+ * service API.
+ * 
+ * @author Donato Rimenti
+ */
 public class Jandex {
 
-	public final static String BASE_ENDPOINT = "https://translate.yandex.net/api/v1.5/tr.json/";
+	/**
+	 * The Constant BASE_ENDPOINT.
+	 */
+	private final static String BASE_ENDPOINT = "https://translate.yandex.net/api/v1.5/tr.json/";
 
+	/**
+	 * The client.
+	 */
 	private Client client;
 
+	/**
+	 * The target.
+	 */
 	private WebTarget target;
 
+	/**
+	 * The api key.
+	 */
 	private String apiKey;
 
+	/**
+	 * Instantiates a new Jandex.
+	 *
+	 * @param apiKey
+	 *            the {@link #apiKey}.
+	 */
 	public Jandex(String apiKey) {
 		this.client = ClientBuilder.newClient();
 		this.apiKey = apiKey;
 	}
 
+	/**
+	 * Instantiates a new Jandex.
+	 *
+	 * @param apiKey
+	 *            the {@link #apiKey}.
+	 * @param loggingEnabled
+	 *            the {@link #loggingEnabled}.
+	 */
 	public Jandex(String apiKey, boolean loggingEnabled) {
 		this.client = ClientBuilder.newClient();
 		if (loggingEnabled) {
@@ -57,32 +89,46 @@ public class Jandex {
 		this.apiKey = apiKey;
 	}
 
+	/**
+	 * Detects the language of the specified text.
+	 *
+	 * @param text
+	 *            the {@link #text}.
+	 * @return the detect language response
+	 */
 	public DetectLanguageResponse detectLanguage(String text) {
-		target = client.target(BASE_ENDPOINT + "detect")
-				.queryParam("key", apiKey).queryParam("text", text);
+		target = client.target(BASE_ENDPOINT + "detect").queryParam("key", apiKey).queryParam("text", text);
 		Response response = target.request().get();
-		DetectLanguageResponse responseDto = response
-				.readEntity(DetectLanguageResponse.class);
+		DetectLanguageResponse responseDto = response.readEntity(DetectLanguageResponse.class);
 		return responseDto;
 	}
 
-	public TranslateTextResponse translateText(String text,
-			String targetLanguage) {
-		target = client.target(BASE_ENDPOINT + "translate")
-				.queryParam("key", apiKey).queryParam("text", text)
+	/**
+	 * Translate text.
+	 *
+	 * @param text
+	 *            the text to detect the language for.
+	 * @param targetLanguage
+	 *            the {@link #targetLanguage}.
+	 * @return the translate text response
+	 */
+	public TranslateTextResponse translateText(String text, String targetLanguage) {
+		target = client.target(BASE_ENDPOINT + "translate").queryParam("key", apiKey).queryParam("text", text)
 				.queryParam("lang", targetLanguage);
 		Response response = target.request().get();
-		TranslateTextResponse responseDto = response
-				.readEntity(TranslateTextResponse.class);
+		TranslateTextResponse responseDto = response.readEntity(TranslateTextResponse.class);
 		return responseDto;
 	}
 
+	/**
+	 * Supported languages.
+	 *
+	 * @return the supported language response
+	 */
 	public SupportedLanguageResponse supportedLanguages() {
-		target = client.target(BASE_ENDPOINT + "getLangs")
-				.queryParam("key", apiKey).queryParam("ui", "en");
+		target = client.target(BASE_ENDPOINT + "getLangs").queryParam("key", apiKey).queryParam("ui", "en");
 		Response response = target.request().get();
-		SupportedLanguageResponse responseDto = response
-				.readEntity(SupportedLanguageResponse.class);
+		SupportedLanguageResponse responseDto = response.readEntity(SupportedLanguageResponse.class);
 		return responseDto;
 	}
 }

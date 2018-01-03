@@ -5,7 +5,7 @@
 	<artifactId>jandex</artifactId>
 	<version>1.0.0</version>
 	<name>Jandex</name>
-	<description>A Java library client for Yandex Translate service.</description>
+	<description>A Java client library for Yandex Translate service.</description>
 	<url>https://github.com/aurasphere/jandex</url>
 	<licenses>
 		<license>
@@ -142,12 +142,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- REST client -->
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-client</artifactId>
 			<version>2.23.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-jackson</artifactId>

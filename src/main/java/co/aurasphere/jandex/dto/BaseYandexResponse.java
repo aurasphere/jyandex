@@ -25,28 +25,104 @@ package co.aurasphere.jandex.dto;
 
 import java.io.Serializable;
 
-public class BaseYandexResponse implements Serializable{
+/**
+ * Base response from Yandex translate service.
+ * 
+ * @author Donato Rimenti
+ */
+public class BaseYandexResponse implements Serializable {
 
+	/**
+	 * The Constant serialVersionUID.
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * The code.
+	 */
 	private int code;
-	
+
+	/**
+	 * The message.
+	 */
 	private String message;
 
+	/**
+	 * Gets the {@link #code}.
+	 *
+	 * @return the {@link #code}.
+	 */
 	public int getCode() {
 		return code;
 	}
 
+	/**
+	 * Sets the {@link #code}.
+	 *
+	 * @param code the new {@link #code}.
+	 */
 	public void setCode(int code) {
 		this.code = code;
 	}
 
+	/**
+	 * Gets the {@link #message}.
+	 *
+	 * @return the {@link #message}.
+	 */
 	public String getMessage() {
 		return message;
 	}
 
+	/**
+	 * Sets the {@link #message}.
+	 *
+	 * @param message the new {@link #message}.
+	 */
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + code;
+		result = prime * result + ((message == null) ? 0 : message.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BaseYandexResponse other = (BaseYandexResponse) obj;
+		if (code != other.code)
+			return false;
+		if (message == null) {
+			if (other.message != null)
+				return false;
+		} else if (!message.equals(other.message))
+			return false;
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "BaseYandexResponse [code=" + code + ", message=" + message + "]";
+	}
+
 }
