@@ -47,19 +47,16 @@ public class JyandexTest {
 	 * The client to test.
 	 */
 	private Jyandex client;
-
-	/**
-	 * If you need an API key, you can get it <a
-	 * href=https://tech.yandex.com/keys/get/?service=trnsl>here</a>.
-	 */
-	private static final String API_KEY = "";
+	
+	private static final String API_KEY_ENV_VARIABLE = "YandexApiKey";
 
 	/**
 	 * Setup.
 	 */
 	@Before
 	public void setup() {
-		client = new Jyandex(API_KEY);
+		String apiKey = System.getenv(API_KEY_ENV_VARIABLE);
+		client = new Jyandex(apiKey);
 	}
 
 	@Test
