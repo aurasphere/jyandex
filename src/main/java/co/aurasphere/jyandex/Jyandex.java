@@ -169,7 +169,7 @@ public class Jyandex {
 	 * 
 	 *            <ul>
 	 *            <li>As a pair of language codes separated by a hyphen
-	 *            (“from”-“to”). For example, en-ru indicates translating from
+	 *            (from-to). For example, en-ru indicates translating from
 	 *            English to Russian.</li>
 	 *            <li>As the target language code (for example, ru). In this
 	 *            case, the service tries to detect the source language
@@ -195,7 +195,7 @@ public class Jyandex {
 	 * 
 	 *            <ul>
 	 *            <li>As a pair of language codes separated by a hyphen
-	 *            (“from”-“to”). For example, en-ru indicates translating from
+	 *            (from-to). For example, en-ru indicates translating from
 	 *            English to Russian. <strong>In this case, the
 	 *            <code>from</code> parameter must be null.</strong></li>
 	 *            <li>As the target language code (for example, ru). In this
@@ -222,7 +222,7 @@ public class Jyandex {
 	 * 
 	 *            <ul>
 	 *            <li>As a pair of language codes separated by a hyphen
-	 *            (“from”-“to”). For example, en-ru indicates translating from
+	 *            (from-to). For example, en-ru indicates translating from
 	 *            English to Russian. <strong>In this case, the
 	 *            <code>from</code> parameter must be null.</strong></li>
 	 *            <li>As the target language code (for example, ru). In this
