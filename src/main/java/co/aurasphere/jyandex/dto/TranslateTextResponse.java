@@ -28,6 +28,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import co.aurasphere.jyandex.Jyandex;
+import co.aurasphere.jyandex.util.IgnoreForTestCoverage;
 
 /**
  * Response for {@link Jyandex#translateText(String, String)}.
@@ -70,6 +71,7 @@ public class TranslateTextResponse extends DetectLanguageResponse {
 	 * @see co.aurasphere.jyandex.dto.DetectLanguageResponse#hashCode()
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
@@ -84,6 +86,7 @@ public class TranslateTextResponse extends DetectLanguageResponse {
 	 * co.aurasphere.jyandex.dto.DetectLanguageResponse#equals(java.lang.Object)
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -103,6 +106,7 @@ public class TranslateTextResponse extends DetectLanguageResponse {
 	 * @see co.aurasphere.jyandex.dto.DetectLanguageResponse#toString()
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public String toString() {
 		return "TranslateTextResponse [text=" + Arrays.toString(translatedText) + "]";
 	}

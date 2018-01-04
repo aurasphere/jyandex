@@ -120,10 +120,8 @@
 				<configuration>
 					<instrumentation>
 						<ignoreTrivial>true</ignoreTrivial>
-						<!-- Ignores overriden methods since these are just equals, hashCode 
-							and toString -->
 						<ignoreMethodAnnotations>
-							<ignoreMethodAnnotation>java.lang.Override</ignoreMethodAnnotation>
+							<ignoreMethodAnnotation>co.aurasphere.jyandex.util.IgnoreForTestCoverage</ignoreMethodAnnotation>
 						</ignoreMethodAnnotations>
 					</instrumentation>
 					<format>xml</format>

@@ -25,6 +25,8 @@ package co.aurasphere.jyandex.dto;
 
 import java.io.Serializable;
 
+import co.aurasphere.jyandex.util.IgnoreForTestCoverage;
+
 /**
  * Base response from Yandex translate service.
  * 
@@ -59,7 +61,8 @@ public class BaseYandexResponse implements Serializable {
 	/**
 	 * Sets the {@link #code}.
 	 *
-	 * @param code the new {@link #code}.
+	 * @param code
+	 *            the new {@link #code}.
 	 */
 	public void setCode(int code) {
 		this.code = code;
@@ -77,16 +80,20 @@ public class BaseYandexResponse implements Serializable {
 	/**
 	 * Sets the {@link #message}.
 	 *
-	 * @param message the new {@link #message}.
+	 * @param message
+	 *            the new {@link #message}.
 	 */
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -95,10 +102,13 @@ public class BaseYandexResponse implements Serializable {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -117,10 +127,13 @@ public class BaseYandexResponse implements Serializable {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public String toString() {
 		return "BaseYandexResponse [code=" + code + ", message=" + message + "]";
 	}

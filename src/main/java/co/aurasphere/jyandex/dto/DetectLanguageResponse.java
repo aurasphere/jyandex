@@ -26,6 +26,7 @@ package co.aurasphere.jyandex.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import co.aurasphere.jyandex.Jyandex;
+import co.aurasphere.jyandex.util.IgnoreForTestCoverage;
 
 /**
  * Response for {@link Jyandex#detectLanguage(String)}.
@@ -70,6 +71,7 @@ public class DetectLanguageResponse extends BaseYandexResponse {
 	 * @see co.aurasphere.jyandex.dto.BaseYandexResponse#hashCode()
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
@@ -84,6 +86,7 @@ public class DetectLanguageResponse extends BaseYandexResponse {
 	 * co.aurasphere.jyandex.dto.BaseYandexResponse#equals(java.lang.Object)
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -106,6 +109,7 @@ public class DetectLanguageResponse extends BaseYandexResponse {
 	 * @see co.aurasphere.jyandex.dto.BaseYandexResponse#toString()
 	 */
 	@Override
+	@IgnoreForTestCoverage
 	public String toString() {
 		return "DetectLanguageResponse [lang=" + detectedLanguage + "]";
 	}
