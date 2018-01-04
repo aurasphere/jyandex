@@ -1,4 +1,4 @@
-/**
+/*
 * MIT License
 * 
 * Copyright (c) 2016 Donato Rimenti
@@ -21,16 +21,18 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 */
-package co.aurasphere.jandex.dto;
+package co.aurasphere.jyandex.dto;
 
-import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import co.aurasphere.jandex.Jandex;
+import co.aurasphere.jyandex.Jyandex;
 
 /**
- * Response for {@link Jandex#translateText(String, String)}.
+ * Response for {@link Jyandex#detectLanguage(String)}.
+ * 
+ * @author Donato Rimenti
  */
-public class TranslateTextResponse extends DetectLanguageResponse {
+public class DetectLanguageResponse extends BaseYandexResponse {
 
 	/**
 	 * The Constant serialVersionUID.
@@ -38,39 +40,40 @@ public class TranslateTextResponse extends DetectLanguageResponse {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The translated text.
+	 * The detected language.
 	 */
-	private String[] text;
+	@JsonProperty("lang")
+	private String detectedLanguage;
 
 	/**
-	 * Gets the {@link #text}.
+	 * Gets the {@link #detectedLanguage}.
 	 *
-	 * @return the {@link #text}.
+	 * @return the {@link #detectedLanguage}.
 	 */
-	public String[] getText() {
-		return text;
+	public String getDetectedLanguage() {
+		return detectedLanguage;
 	}
 
 	/**
-	 * Sets the {@link #text}.
+	 * Sets the {@link #detectedLanguage}.
 	 *
-	 * @param text
-	 *            the new {@link #text}.
+	 * @param detectedLanguage
+	 *            the new {@link #detectedLanguage}.
 	 */
-	public void setText(String[] text) {
-		this.text = text;
+	public void setDetectedLanguage(String detectedLanguage) {
+		this.detectedLanguage = detectedLanguage;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.jandex.dto.DetectLanguageResponse#hashCode()
+	 * @see co.aurasphere.jyandex.dto.BaseYandexResponse#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Arrays.hashCode(text);
+		result = prime * result + ((detectedLanguage == null) ? 0 : detectedLanguage.hashCode());
 		return result;
 	}
 
@@ -78,7 +81,7 @@ public class TranslateTextResponse extends DetectLanguageResponse {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * co.aurasphere.jandex.dto.DetectLanguageResponse#equals(java.lang.Object)
+	 * co.aurasphere.jyandex.dto.BaseYandexResponse#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -88,8 +91,11 @@ public class TranslateTextResponse extends DetectLanguageResponse {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TranslateTextResponse other = (TranslateTextResponse) obj;
-		if (!Arrays.equals(text, other.text))
+		DetectLanguageResponse other = (DetectLanguageResponse) obj;
+		if (detectedLanguage == null) {
+			if (other.detectedLanguage != null)
+				return false;
+		} else if (!detectedLanguage.equals(other.detectedLanguage))
 			return false;
 		return true;
 	}
@@ -97,11 +103,11 @@ public class TranslateTextResponse extends DetectLanguageResponse {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.jandex.dto.DetectLanguageResponse#toString()
+	 * @see co.aurasphere.jyandex.dto.BaseYandexResponse#toString()
 	 */
 	@Override
 	public String toString() {
-		return "TranslateTextResponse [text=" + Arrays.toString(text) + "]";
+		return "DetectLanguageResponse [lang=" + detectedLanguage + "]";
 	}
 
 }

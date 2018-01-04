@@ -1,4 +1,4 @@
-/**
+/*
 * MIT License
 * 
 * Copyright (c) 2016 Donato Rimenti
@@ -21,16 +21,18 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 */
-package co.aurasphere.jandex.dto;
+package co.aurasphere.jyandex.dto;
 
-import java.io.Serializable;
+import java.util.Arrays;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import co.aurasphere.jyandex.Jyandex;
 
 /**
- * Base response from Yandex translate service.
- * 
- * @author Donato Rimenti
+ * Response for {@link Jyandex#translateText(String, String)}.
  */
-public class BaseYandexResponse implements Serializable {
+public class TranslateTextResponse extends DetectLanguageResponse {
 
 	/**
 	 * The Constant serialVersionUID.
@@ -38,91 +40,71 @@ public class BaseYandexResponse implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The code.
+	 * The translated text.
 	 */
-	private int code;
+	@JsonProperty("text")
+	private String[] translatedText;
 
 	/**
-	 * The message.
-	 */
-	private String message;
-
-	/**
-	 * Gets the {@link #code}.
+	 * Gets the {@link #translatedText}.
 	 *
-	 * @return the {@link #code}.
+	 * @return the {@link #translatedText}.
 	 */
-	public int getCode() {
-		return code;
+	public String[] getTranslatedText() {
+		return translatedText;
 	}
 
 	/**
-	 * Sets the {@link #code}.
+	 * Sets the {@link #translatedText}.
 	 *
-	 * @param code the new {@link #code}.
+	 * @param translatedText
+	 *            the new {@link #translatedText}.
 	 */
-	public void setCode(int code) {
-		this.code = code;
+	public void setTranslatedText(String[] translatedText) {
+		this.translatedText = translatedText;
 	}
 
-	/**
-	 * Gets the {@link #message}.
-	 *
-	 * @return the {@link #message}.
-	 */
-	public String getMessage() {
-		return message;
-	}
-
-	/**
-	 * Sets the {@link #message}.
-	 *
-	 * @param message the new {@link #message}.
-	 */
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.jyandex.dto.DetectLanguageResponse#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
-		result = prime * result + code;
-		result = prime * result + ((message == null) ? 0 : message.hashCode());
+		int result = super.hashCode();
+		result = prime * result + Arrays.hashCode(translatedText);
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * co.aurasphere.jyandex.dto.DetectLanguageResponse#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		BaseYandexResponse other = (BaseYandexResponse) obj;
-		if (code != other.code)
-			return false;
-		if (message == null) {
-			if (other.message != null)
-				return false;
-		} else if (!message.equals(other.message))
+		TranslateTextResponse other = (TranslateTextResponse) obj;
+		if (!Arrays.equals(translatedText, other.translatedText))
 			return false;
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see co.aurasphere.jyandex.dto.DetectLanguageResponse#toString()
 	 */
 	@Override
 	public String toString() {
-		return "BaseYandexResponse [code=" + code + ", message=" + message + "]";
+		return "TranslateTextResponse [text=" + Arrays.toString(translatedText) + "]";
 	}
 
 }

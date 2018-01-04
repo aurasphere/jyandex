@@ -1,4 +1,4 @@
-/**
+/*
 * MIT License
 * 
 * Copyright (c) 2016 Donato Rimenti
@@ -21,16 +21,16 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 */
-package co.aurasphere.jandex.dto;
+package co.aurasphere.jyandex.dto;
 
-import co.aurasphere.jandex.Jandex;
+import java.io.Serializable;
 
 /**
- * Response for {@link Jandex#detectLanguage(String)}.
+ * Base response from Yandex translate service.
  * 
  * @author Donato Rimenti
  */
-public class DetectLanguageResponse extends BaseYandexResponse {
+public class BaseYandexResponse implements Serializable {
 
 	/**
 	 * The Constant serialVersionUID.
@@ -38,72 +38,91 @@ public class DetectLanguageResponse extends BaseYandexResponse {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * The detected language.
+	 * The code.
 	 */
-	private String lang;
+	private int code;
 
 	/**
-	 * Gets the {@link #lang}.
-	 *
-	 * @return the {@link #lang}.
+	 * The message.
 	 */
-	public String getLang() {
-		return lang;
+	private String message;
+
+	/**
+	 * Gets the {@link #code}.
+	 *
+	 * @return the {@link #code}.
+	 */
+	public int getCode() {
+		return code;
 	}
 
 	/**
-	 * Sets the {@link #lang}.
+	 * Sets the {@link #code}.
 	 *
-	 * @param lang
-	 *            the new {@link #lang}.
+	 * @param code the new {@link #code}.
 	 */
-	public void setLang(String lang) {
-		this.lang = lang;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#hashCode()
+	/**
+	 * Gets the {@link #message}.
+	 *
+	 * @return the {@link #message}.
+	 */
+	public String getMessage() {
+		return message;
+	}
+
+	/**
+	 * Sets the {@link #message}.
+	 *
+	 * @param message the new {@link #message}.
+	 */
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((lang == null) ? 0 : lang.hashCode());
+		int result = 1;
+		result = prime * result + code;
+		result = prime * result + ((message == null) ? 0 : message.hashCode());
 		return result;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#equals(java.lang.Object)
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
+		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DetectLanguageResponse other = (DetectLanguageResponse) obj;
-		if (lang == null) {
-			if (other.lang != null)
+		BaseYandexResponse other = (BaseYandexResponse) obj;
+		if (code != other.code)
+			return false;
+		if (message == null) {
+			if (other.message != null)
 				return false;
-		} else if (!lang.equals(other.lang))
+		} else if (!message.equals(other.message))
 			return false;
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#toString()
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "DetectLanguageResponse [lang=" + lang + "]";
+		return "BaseYandexResponse [code=" + code + ", message=" + message + "]";
 	}
 
 }

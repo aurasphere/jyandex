@@ -1,4 +1,4 @@
-/**
+/*
 * MIT License
 * 
 * Copyright (c) 2016 Donato Rimenti
@@ -21,15 +21,17 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
 */
-package co.aurasphere.jandex.dto;
+package co.aurasphere.jyandex.dto;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-import co.aurasphere.jandex.Jandex;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import co.aurasphere.jyandex.Jyandex;
 
 /**
- * Response for {@link Jandex#supportedLanguages()}.
+ * Response for {@link Jyandex#supportedLanguages()}.
  * 
  * @author Donato Rimenti
  */
@@ -43,69 +45,71 @@ public class SupportedLanguageResponse extends BaseYandexResponse {
 	/**
 	 * The supported languages.
 	 */
-	private HashMap<String, String> langs;
+	@JsonProperty("langs")
+	private HashMap<String, String> supportedLanguages;
 
 	/**
 	 * The supported directions.
 	 */
-	private String[] dirs;
+	@JsonProperty("dirs")
+	private String[] supportedDirections;
 
 	/**
-	 * Gets the {@link #dirs}.
+	 * Gets the {@link #supportedDirections}.
 	 *
-	 * @return the {@link #dirs}.
+	 * @return the {@link #supportedDirections}.
 	 */
-	public String[] getDirs() {
-		return dirs;
+	public String[] getSupportedDirections() {
+		return supportedDirections;
 	}
 
 	/**
-	 * Sets the {@link #dirs}.
+	 * Sets the {@link #supportedDirections}.
 	 *
-	 * @param dirs
-	 *            the new {@link #dirs}.
+	 * @param supportedDirections
+	 *            the new {@link #supportedDirections}.
 	 */
-	public void setDirs(String[] dirs) {
-		this.dirs = dirs;
+	public void setSupportedDirections(String[] supportedDirections) {
+		this.supportedDirections = supportedDirections;
 	}
 
 	/**
-	 * Gets the {@link #langs}.
+	 * Gets the {@link #supportedLanguages}.
 	 *
-	 * @return the {@link #langs}.
+	 * @return the {@link #supportedLanguages}.
 	 */
-	public HashMap<String, String> getLangs() {
-		return langs;
+	public HashMap<String, String> getSupportedLanguages() {
+		return supportedLanguages;
 	}
 
 	/**
 	 * Sets the langs.
 	 *
-	 * @param langs
-	 *            the {@link #langs}.
+	 * @param supportedLanguages
+	 *            the {@link #supportedLanguages}.
 	 */
-	public void setLangs(HashMap<String, String> langs) {
-		this.langs = langs;
+	public void setSupportedLanguages(HashMap<String, String> supportedLanguages) {
+		this.supportedLanguages = supportedLanguages;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#hashCode()
+	 * @see co.aurasphere.jyandex.dto.BaseYandexResponse#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Arrays.hashCode(dirs);
-		result = prime * result + ((langs == null) ? 0 : langs.hashCode());
+		result = prime * result + Arrays.hashCode(supportedDirections);
+		result = prime * result + ((supportedLanguages == null) ? 0 : supportedLanguages.hashCode());
 		return result;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#equals(java.lang.Object)
+	 * @see co.aurasphere.jyandex.dto.BaseYandexResponse#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -116,12 +120,12 @@ public class SupportedLanguageResponse extends BaseYandexResponse {
 		if (getClass() != obj.getClass())
 			return false;
 		SupportedLanguageResponse other = (SupportedLanguageResponse) obj;
-		if (!Arrays.equals(dirs, other.dirs))
+		if (!Arrays.equals(supportedDirections, other.supportedDirections))
 			return false;
-		if (langs == null) {
-			if (other.langs != null)
+		if (supportedLanguages == null) {
+			if (other.supportedLanguages != null)
 				return false;
-		} else if (!langs.equals(other.langs))
+		} else if (!supportedLanguages.equals(other.supportedLanguages))
 			return false;
 		return true;
 	}
@@ -129,10 +133,10 @@ public class SupportedLanguageResponse extends BaseYandexResponse {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see co.aurasphere.jandex.dto.BaseYandexResponse#toString()
+	 * @see co.aurasphere.jyandex.dto.BaseYandexResponse#toString()
 	 */
 	@Override
 	public String toString() {
-		return "SupportedLanguageResponse [langs=" + langs + ", dirs=" + Arrays.toString(dirs) + "]";
+		return "SupportedLanguageResponse [langs=" + supportedLanguages + ", dirs=" + Arrays.toString(supportedDirections) + "]";
 	}
 }

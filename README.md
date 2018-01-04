@@ -1,4 +1,4 @@
-# Jandex
+# Jyandex
 A Java library client for Yandex Translate service.
 
 The library offers three services: text translation, text language detection and available language for translation.

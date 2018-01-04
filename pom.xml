@@ -2,15 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.aurasphere</groupId>
-	<artifactId>jandex</artifactId>
+	<artifactId>jyandex</artifactId>
 	<version>1.0.0</version>
-	<name>Jandex</name>
+	<name>Jyandex</name>
 	<description>A Java client library for Yandex Translate service.</description>
-	<url>https://github.com/aurasphere/jandex</url>
+	<url>https://github.com/aurasphere/jyandex</url>
 	<licenses>
 		<license>
 			<name>MIT License</name>
-			<url>https://raw.githubusercontent.com/aurasphere/jandex/master/LICENSE</url>
+			<url>https://raw.githubusercontent.com/aurasphere/jyandex/master/LICENSE</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
@@ -28,10 +28,10 @@
 		</developer>
 	</developers>
 	<scm>
-		<url>https://github.com/aurasphere/jandex</url>
-		<connection>scm:git:git://github.com/aurasphere/jandex.git</connection>
-		<developerConnection>scm:git:git@github.com:aurasphere/jandex.git</developerConnection>
-		<tag>jandex-1.0.0</tag>
+		<url>https://github.com/aurasphere/jyandex</url>
+		<connection>scm:git:git://github.com/aurasphere/jyandex.git</connection>
+		<developerConnection>scm:git:git@github.com:aurasphere/jyandex.git</developerConnection>
+		<tag>jyandex-1.0.0</tag>
 	</scm>
 	<distributionManagement>
 		<snapshotRepository>
@@ -106,8 +106,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.0</version>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 			<plugin>
