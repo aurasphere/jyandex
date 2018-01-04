@@ -525,14 +525,4 @@ public class Language {
 		return from + "-" + to;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Language []";
-	}
-
 }
