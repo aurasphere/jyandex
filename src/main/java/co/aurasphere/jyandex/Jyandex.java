@@ -245,7 +245,7 @@ public class Jyandex {
 		}
 
 		return makeRequest(TRANSLATE_TEXT_PATH).queryParam(TEXT_PARAMETER, text)
-				.queryParam(LANGUAGE_PARAMETER, targetLanguage).queryParam(FORMAT_PARAMETER, format.name()).request()
+				.queryParam(LANGUAGE_PARAMETER, targetLanguage).queryParam(FORMAT_PARAMETER, format.name().toLowerCase()).request()
 				.get().readEntity(TranslateTextResponse.class);
 	}
 
