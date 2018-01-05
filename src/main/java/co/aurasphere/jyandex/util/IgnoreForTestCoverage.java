@@ -1,5 +1,6 @@
 package co.aurasphere.jyandex.util;
 
+import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,8 +12,9 @@ import java.lang.annotation.Target;
  * 
  * @author Donato Rimenti
  */
+@Documented
 @Target(ElementType.METHOD)
-@Retention(RetentionPolicy.SOURCE)
+@Retention(RetentionPolicy.CLASS)
 public @interface IgnoreForTestCoverage {
 
 }

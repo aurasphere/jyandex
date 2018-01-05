@@ -118,36 +118,17 @@
 				<artifactId>cobertura-maven-plugin</artifactId>
 				<version>2.7</version>
 				<configuration>
+					<formats>
+						<format>html</format>
+					</formats>
 					<instrumentation>
 						<ignoreTrivial>true</ignoreTrivial>
-						<ignoreMethodAnnotations>
-							<ignoreMethodAnnotation>co.aurasphere.jyandex.util.IgnoreForTestCoverage</ignoreMethodAnnotation>
-						</ignoreMethodAnnotations>
+						<ignoreMethodAnnotation>co.aurasphere.jyandex.util.IgnoreForTestCoverage</ignoreMethodAnnotation>
 					</instrumentation>
-					<format>xml</format>
-					<maxmem>256m</maxmem>
-					<!-- aggregated reports for multi-module projects -->
-					<aggregate>true</aggregate>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<check></check>
-					<formats>
-						<format>html</format>
-						<format>xml</format>
-					</formats>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
