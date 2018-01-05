@@ -17,4 +17,5 @@ script:
   - mvn clean install cobertura:cobertura
   
 after_success:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter format-coverage -t cobertura target/site/cobertura/cobertura.xml
+  - ./cc-test-reporter upload-coverage
