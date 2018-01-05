@@ -1,4 +1,6 @@
-[![Travis](https://img.shields.io/travis/aurasphere/jyandex.svg)]()
+[![Travis](https://img.shields.io/travis/aurasphere/jyandex.svg)](https://travis-ci.org/aurasphere/jyandex)
+[![Maven Central](https://img.shields.io/maven-central/v/co.aurasphere/jyandex.svg)](http://search.maven.org/#artifactdetails%7Cco.aurasphere%7Cjyandex%7C1.0.0%7Cjar)
+[![Javadocs](http://javadoc.io/badge/co.aurasphere/jyandex.svg)](http://javadoc.io/doc/co.aurasphere/jyandex)
 [![Maintainability](https://api.codeclimate.com/v1/badges/43d564cf9ee6e93d8391/maintainability)](https://codeclimate.com/github/aurasphere/jyandex/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/43d564cf9ee6e93d8391/test_coverage)](https://codeclimate.com/github/aurasphere/jyandex/test_coverage)
 [![Join the chat at https://gitter.im/jyandex/Lobby](https://badges.gitter.im/jyandex/Lobby.svg)](https://gitter.im/jyandex/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
