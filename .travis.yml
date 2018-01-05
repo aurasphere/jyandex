@@ -14,8 +14,7 @@ before_script:
   - ./cc-test-reporter before-build
   
 script:
-  - mvn clean install
+  - mvn clean install cobertura:cobertura
   
 after_success:
-  - mvn clean test cobertura:cobertura
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
