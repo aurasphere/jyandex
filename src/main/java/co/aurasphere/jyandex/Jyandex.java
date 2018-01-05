@@ -145,17 +145,31 @@ public class Jyandex {
 
 		// Builds the hint string if any hint is passed.
 		if (hint != null && !hint.isEmpty()) {
-			StringBuilder hintBuilder = new StringBuilder();
-			for (String s : hint) {
-				if (!s.isEmpty()) {
-					hintBuilder.append(s).append(",");
-				}
-			}
-			hintBuilder.setLength(hintBuilder.length() - 1);
-			target.queryParam(HINT_PARAMETER, hintBuilder.toString());
+			String hintString = listToCommaSeparedString(hint);
+			target.queryParam(HINT_PARAMETER, hintString);
 		}
 
 		return target.request().get().readEntity(DetectLanguageResponse.class);
+	}
+
+	/**
+	 * Converts a list into a string with values separed by a comma.
+	 * 
+	 * @param list
+	 *            the list to convert
+	 * @return a string with the values of the list separed by a comma
+	 */
+	private String listToCommaSeparedString(List<String> list) {
+		StringBuilder hintBuilder = new StringBuilder();
+		for (String s : list) {
+			if (s != null && !s.isEmpty()) {
+				hintBuilder.append(s).append(",");
+			}
+		}
+		
+		// Deletes the last comma and returns.
+		hintBuilder.setLength(hintBuilder.length() - 1);
+		return hintBuilder.toString();
 	}
 
 	/**
@@ -245,8 +259,9 @@ public class Jyandex {
 		}
 
 		return makeRequest(TRANSLATE_TEXT_PATH).queryParam(TEXT_PARAMETER, text)
-				.queryParam(LANGUAGE_PARAMETER, targetLanguage).queryParam(FORMAT_PARAMETER, format.name().toLowerCase()).request()
-				.get().readEntity(TranslateTextResponse.class);
+				.queryParam(LANGUAGE_PARAMETER, targetLanguage)
+				.queryParam(FORMAT_PARAMETER, format.name().toLowerCase()).request().get()
+				.readEntity(TranslateTextResponse.class);
 	}
 
 	/**
