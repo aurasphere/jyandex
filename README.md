@@ -25,11 +25,7 @@ Maven:
 
 Gradle:
 
-    compile group: 'co.aurasphere', name: 'jyandex', version: '1.0.0'
-
-SBT:
-
-    libraryDependencies += "co.aurasphere" % "jyandex" % "1.0.0"
+    implementation 'co.aurasphere:jyandex:1.0.0'
 
 ### Create a client
 
