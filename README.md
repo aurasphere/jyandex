@@ -12,6 +12,9 @@ A Java library client for Yandex Translate service.
 This library offers three services: text translation, text language detection and available languages for translation.
 You will need a <a href="https://tech.yandex.com/keys/get/?service=trnsl">free API key</a> in order to use the Yandex API.
 
+## Warning
+Starting from August 15, 2020, free API keys aren't issued. For this reason, this project is not tested/maintained anymore.
+
 ## Sample Usage
 
 ### Dependency
